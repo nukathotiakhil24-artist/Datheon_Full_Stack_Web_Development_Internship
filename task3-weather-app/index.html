@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather Forecast</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="theme-default">
+  <main class="app">
+    <h1 class="title">Weather Forecast</h1>
+
+    <form id="search-form" class="search-form" autocomplete="off">
+      <input id="city-input" type="text" placeholder="Search any city, e.g. Hyderabad" required aria-label="City name" />
+      <button type="submit" class="btn">Search</button>
+      <button type="button" id="unit-toggle" class="btn btn-ghost" aria-label="Toggle temperature unit">&deg;C</button>
+    </form>
+
+    <div id="loader" class="loader" hidden>
+      <div class="spinner" aria-hidden="true"></div>
+      <p>Fetching weather...</p>
+    </div>
+
+    <div id="error" class="error" role="alert" hidden></div>
+
+    <section id="weather" class="weather" hidden>
+      <div class="current card">
+        <div class="current-top">
+          <div>
+            <h2 id="city-name"></h2>
+            <p id="local-time" class="muted"></p>
+            <p id="description" class="description"></p>
+          </div>
+          <img id="weather-icon" class="weather-icon" alt="" width="100" height="100" />
+        </div>
+        <div class="temp-row">
+          <span id="temperature" class="temperature"></span>
+          <span id="feels-like" class="muted"></span>
+        </div>
+        <div class="metrics">
+          <div class="metric"><span class="metric-label">Humidity</span><span id="humidity" class="metric-value"></span></div>
+          <div class="metric"><span class="metric-label">Wind</span><span id="wind" class="metric-value"></span></div>
+          <div class="metric"><span class="metric-label">Pressure</span><span id="pressure" class="metric-value"></span></div>
+        </div>
+      </div>
+
+      <h3 class="section-title">5-Day Forecast</h3>
+      <div id="forecast" class="forecast"></div>
+    </section>
+  </main>
+
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

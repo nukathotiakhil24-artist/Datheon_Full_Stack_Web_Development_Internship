@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task Manager</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <header>
+      <h1>Task Manager</h1>
+      <p id="stats">No tasks yet</p>
+      <div class="progress" aria-hidden="true"><div id="progress-bar" class="progress-bar"></div></div>
+    </header>
+
+    <form id="task-form" class="task-form" autocomplete="off">
+      <input id="task-input" type="text" placeholder="What needs to be done?" maxlength="120" required aria-label="Task title" />
+      <select id="category-select" aria-label="Task category">
+        <option value="Work">Work</option>
+        <option value="Personal">Personal</option>
+        <option value="Study">Study</option>
+        <option value="Health">Health</option>
+        <option value="Other">Other</option>
+      </select>
+      <button type="submit" class="btn btn-primary">Add Task</button>
+    </form>
+
+    <section class="toolbar">
+      <input id="search-input" type="search" placeholder="Search tasks..." aria-label="Search tasks" />
+      <div id="status-filters" class="filters" role="group" aria-label="Filter by status">
+        <button type="button" class="chip active" data-filter="all">All</button>
+        <button type="button" class="chip" data-filter="active">Active</button>
+        <button type="button" class="chip" data-filter="completed">Completed</button>
+      </div>
+      <select id="category-filter" aria-label="Filter by category">
+        <option value="all">All categories</option>
+        <option value="Work">Work</option>
+        <option value="Personal">Personal</option>
+        <option value="Study">Study</option>
+        <option value="Health">Health</option>
+        <option value="Other">Other</option>
+      </select>
+    </section>
+
+    <ul id="task-list" class="task-list"></ul>
+    <p id="empty-state" class="empty-state" hidden>Nothing here. Add a task or change your filters.</p>
+
+    <footer class="footer">
+      <span class="hint">Tip: drag tasks to reorder. Double-click a task to edit it.</span>
+      <button id="clear-completed" type="button" class="btn btn-ghost">Clear completed</button>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
